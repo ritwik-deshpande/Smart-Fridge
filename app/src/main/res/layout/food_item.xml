@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+
+android:padding="15dp">
+
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/registration_card"
+    style="@style/Description_Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="5dp"
+    app:cardBackgroundColor="#ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/fruit_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/apple" />
+
+            <LinearLayout
+                android:layout_width="247dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fruit_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/dp"
+                    android:text="Apple"
+                    android:textAllCaps="true"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="8dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Date Added"
+                        android:textColor="#000000" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/add_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="24th April 2023"
+                        android:textColor="#000000" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingLeft="8dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Use Within"
+                        android:textColor="#000000" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/expiry_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="29th April 2023"
+                        android:textColor="#000000" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+</RelativeLayout>
