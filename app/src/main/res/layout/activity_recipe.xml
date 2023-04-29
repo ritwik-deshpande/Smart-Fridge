@@ -5,24 +5,12 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".RecipeActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:theme="@style/Theme.CS437.AppBarOverlay">
-
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginEnd="@dimen/fab_margin"
-            android:layout_marginBottom="3dp"
-            app:srcCompat="@drawable/baseline_restaurant_24"
-            android:contentDescription="TODO" />
-
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -31,14 +19,10 @@
         android:layout_height="wrap_content">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/food_recyclerview"
+            android:id="@+id/recipe_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </androidx.recyclerview.widget.RecyclerView>
-
     </ScrollView>
-
-
-
 
 </LinearLayout>

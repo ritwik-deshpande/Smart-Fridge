@@ -73,8 +73,8 @@ public class Server extends Thread{
            @Override
            public void run() {
                recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
-               FoodItemAdapter eventsAdapter = new FoodItemAdapter(foodItems, context);
-               recyclerView.setAdapter(eventsAdapter);
+               FoodItemAdapter foodItemAdapter = new FoodItemAdapter(foodItems, context);
+               recyclerView.setAdapter(foodItemAdapter);
            }
        });
 
