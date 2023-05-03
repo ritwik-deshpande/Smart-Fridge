@@ -1,6 +1,5 @@
 package com.example.cs437;
 
-
 import android.content.Context;
 import android.util.Base64;
 import android.util.Log;
@@ -14,12 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
-import java.util.TimeZone;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -59,7 +56,6 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.MyView
         format = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
         String expiry_date_str = format.format(expiry_date);
         myViewHolder.expiry.setText(expiry_date_str);
-
     }
 
     @Override

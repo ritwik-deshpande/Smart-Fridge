@@ -1,8 +1,5 @@
 package com.example.cs437;
-import static androidx.fragment.app.FragmentManager.TAG;
-
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -10,17 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Future;
-import java.util.stream.Stream;
 
-import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -55,7 +47,6 @@ public class RecipeActivity extends AppCompatActivity {
                         Recipe recipe = new Recipe(name, image, "");
                         recipes.add(recipe);
                     }
-
                     future.complete(recipes);
 
                 } catch (Exception e) {

@@ -36,7 +36,4 @@ public class MyFirebaseMessagingService  extends FirebaseMessagingService {
         // Instance ID token to your app server.
         //sendRegistrationToServer(token);
     }
-
-
-
 }

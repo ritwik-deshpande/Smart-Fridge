@@ -2,8 +2,6 @@ package com.example.cs437;
 
 import android.app.Activity;
 import android.content.Context;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,15 +32,6 @@ public class Server extends Thread{
         this.context = context;
         try {
             this.serverSocket = new ServerSocket(port, 0, InetAddress.getByName("0.0.0.0"));
-            WifiManager wifiManager = (WifiManager) this.context.getSystemService(Context.WIFI_SERVICE);
-
-            // Get the Wi-Fi info for the current connection
-            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-
-            // Get the IP address as a string and display it in a text view
-            String ipAddress = intToIp(wifiInfo.getIpAddress());
-
-            System.out.println("The IP address is " + ipAddress);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -56,7 +45,6 @@ public class Server extends Thread{
                 s.start();
                 s.join();
                 FoodItem foodItem = s.getFoodItems();
-//                System.out.println("The new food item" + foodItem.getName());
                 if (foodItem.getDirection().equals("Up")){
                     boolean isPresent = false;
                     for (FoodItem existingFoodItem: foodItems){
@@ -76,13 +64,11 @@ public class Server extends Thread{
                     }
                 }
                 this.updateUI();
-//                System.out.println("After updating The size is " + foodItems.size());
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
     }
-
     public void updateUI(){
         Activity activity = (Activity) this.context;
         activity.runOnUiThread(new Runnable() {

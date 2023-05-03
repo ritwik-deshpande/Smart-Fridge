@@ -1,36 +1,20 @@
 package com.example.cs437;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.List;
-
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -62,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 //                });
 
-
-
         foodItems = new ArrayList<>();
         try {
             OkHttpClient client = new OkHttpClient();
@@ -74,8 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     try {
-                        Response responses = null;
-                        responses = client.newCall(request).execute();
+                        Response responses = client.newCall(request).execute();
                         String jsonData = responses.body().string();
                         JSONObject Jobject = new JSONObject(jsonData);
                         JSONArray Jarray = Jobject.getJSONArray("results");
