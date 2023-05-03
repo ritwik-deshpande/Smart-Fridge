@@ -4,9 +4,16 @@ import java.util.List;
 
 public class FoodItem {
     String name;
-    int expiry;
-    int addDate;
+    long expiry;
+    long addDate;
     String foodImage;
+    String direction;
+
+    public void setDirection(String direction){this.direction = direction;}
+
+    public String getDirection(){
+        return direction;
+    }
 
     public String getName() {
         return name;
@@ -16,7 +23,7 @@ public class FoodItem {
         this.name = name;
     }
 
-    public int getExpiry() {
+    public long getExpiry() {
         return expiry;
     }
 
@@ -24,7 +31,7 @@ public class FoodItem {
         this.expiry = expiry;
     }
 
-    public int getAddDate() {
+    public long getAddDate() {
         return addDate;
     }
 
@@ -40,10 +47,11 @@ public class FoodItem {
         this.foodImage = foodImage;
     }
 
-    public FoodItem(String name, int expiry, int addDate, String foodImage) {
+    public FoodItem(String name, long expiry, long addDate, String foodImage, String direction) {
         this.name = name;
         this.expiry = expiry;
         this.addDate = addDate;
         this.foodImage = foodImage;
+        this.direction = direction;
     }
 }

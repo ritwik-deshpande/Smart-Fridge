@@ -2,7 +2,7 @@ package com.example.cs437;
 
 public class Recipe {
     String name;
-    int image;
+    String image;
     String desciption;
 
     public String getName() {
@@ -13,11 +13,11 @@ public class Recipe {
         this.name = name;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -29,7 +29,7 @@ public class Recipe {
         this.desciption = desciption;
     }
 
-    public Recipe(String name, int image, String desciption) {
+    public Recipe(String name, String image, String desciption) {
         this.name = name;
         this.image = image;
         this.desciption = desciption;

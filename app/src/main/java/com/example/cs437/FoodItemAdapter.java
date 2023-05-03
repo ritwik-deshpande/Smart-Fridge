@@ -14,7 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -45,8 +50,15 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.MyView
 
         Glide.with(context).asBitmap().load(imageByteArray).into(myViewHolder.image);
         myViewHolder.name.setText(foodItems.get(i).getName());
-        myViewHolder.expiry.setText(String.valueOf(foodItems.get(i).getExpiry()));
-        myViewHolder.add_date.setText(String.valueOf(foodItems.get(i).getAddDate()));
+        Date add_date = new Date(foodItems.get(i).getAddDate()*1000);
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        String add_date_str = format.format(add_date);
+        myViewHolder.add_date.setText(add_date_str);
+
+        Date expiry_date = new Date(foodItems.get(i).getExpiry()*1000 + foodItems.get(i).getAddDate()*1000);
+        format = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+        String expiry_date_str = format.format(expiry_date);
+        myViewHolder.expiry.setText(expiry_date_str);
 
     }
 

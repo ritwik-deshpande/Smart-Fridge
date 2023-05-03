@@ -46,6 +46,7 @@ public class Server extends Thread{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        this.updateUI();
     }
     public void run(){
         while (true){
@@ -55,12 +56,27 @@ public class Server extends Thread{
                 s.start();
                 s.join();
                 FoodItem foodItem = s.getFoodItems();
-                System.out.println("The size is " + foodItems.size());
-                this.foodItems.add(foodItem);
+//                System.out.println("The new food item" + foodItem.getName());
+                if (foodItem.getDirection().equals("Up")){
+                    boolean isPresent = false;
+                    for (FoodItem existingFoodItem: foodItems){
+                        if (foodItem.getName().equals(existingFoodItem.getName())){
+                            isPresent = true;
+                            break;
+                        }
+                    }
+                    if (!isPresent)
+                        foodItems.add(foodItem);
+                } else{
+                    for (FoodItem existingFoodItem: foodItems) {
+                        if (foodItem.getName().equals(existingFoodItem.getName())) {
+                            foodItems.remove(existingFoodItem);
+                            break;
+                        }
+                    }
+                }
                 this.updateUI();
-                System.out.println("After updating The size is " + foodItems.size());
-
-
+//                System.out.println("After updating The size is " + foodItems.size());
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
