@@ -65,38 +65,38 @@ public class MainActivity extends AppCompatActivity {
 
 
         foodItems = new ArrayList<>();
-//        try {
-//            OkHttpClient client = new OkHttpClient();
-//            Request request = new Request.Builder()
-//                    .url("http://192.168.10.47:5000/init")
-//                    .build();
-//            Thread t = new Thread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    try {
-//                        Response responses = null;
-//                        responses = client.newCall(request).execute();
-//                        String jsonData = responses.body().string();
-//                        JSONObject Jobject = new JSONObject(jsonData);
-//                        JSONArray Jarray = Jobject.getJSONArray("results");
-//
-//                        for (int i = 0; i < Jarray.length(); i++) {
-//                            JSONObject object = Jarray.getJSONObject(i);
-//                            System.out.println(object);
-//                            FoodItem foodItem = gson.fromJson(object.toString(), FoodItem.class);
-//                            foodItems.add(foodItem);
-//                        }
-//                    } catch (Exception e) {
-//                        throw new RuntimeException(e);
-//                    }
-//                }
-//            });
-//            t.start();
-//            t.join();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder()
+                    .url("http://192.168.10.47:5000/init")
+                    .build();
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Response responses = null;
+                        responses = client.newCall(request).execute();
+                        String jsonData = responses.body().string();
+                        JSONObject Jobject = new JSONObject(jsonData);
+                        JSONArray Jarray = Jobject.getJSONArray("results");
+
+                        for (int i = 0; i < Jarray.length(); i++) {
+                            JSONObject object = Jarray.getJSONObject(i);
+                            System.out.println(object);
+                            FoodItem foodItem = gson.fromJson(object.toString(), FoodItem.class);
+                            foodItems.add(foodItem);
+                        }
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            });
+            t.start();
+            t.join();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         System.out.println(foodItems);
         recyclerView = (RecyclerView)findViewById(R.id.food_recyclerview);
         recyclerView.setLayoutManager(new GridLayoutManager(this,1));
